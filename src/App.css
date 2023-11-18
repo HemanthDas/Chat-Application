@@ -3,32 +3,57 @@
   position: relative;
 }
 nav {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: 100vh;
-  width: 16%;
+  width: 14.2%;
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* align-items: center; */
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr;
+  border-right: 0.01px solid rgba(141, 141, 141, 0.336);
+  > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  > label {
+    text-align: center;
+    font-size: 5vmin;
+  }
 }
-.navbar {
-  flex: 1.5;
+#navbar {
+  background-color: white;
+  flex: 1;
 }
 .whole {
-  flex: 5;
+  flex: 6;
   display: flex;
-  justify-content: center;
-  overflow-y: auto;
+  flex-direction: column;
+  overflow: auto;
+  width: 100vw;
+  .dashboard {
+    display: flex;
+    position: relative;
+    .posts {
+      flex: 6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
 #postcard {
-  width: 40vw;
+  width: 60%;
   height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  outline: 1px solid rgb(255, 255, 255);
+  border-bottom: 0.01px solid rgb(141, 141, 141,0.336);
+}
+#suggestion {
+  flex: 2;
+  background-color: white;
+  max-height: 100vh;
 }
 .link-box {
   font-size: 2vmin;
@@ -38,6 +63,7 @@ nav {
   align-items: center;
   margin: 0.8em;
   padding: 10px;
+  width: 70%;
   > img {
     width: 3vmin;
     height: 3vmin;

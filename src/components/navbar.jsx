@@ -7,11 +7,14 @@ import explore from "../assets/explore.svg";
 const Navbar = () => {
   return (
     <nav>
-      <IconLink name="Home" svg={home} link={"/"} />
-      <IconLink name="Search" svg={search} link={"/search"} />
-      <IconLink name="Explore" svg={explore} link={"/explore"} />
-      <IconLink name="Create" svg={create} link="/create" />
-      <IconLink name="Profile" svg={profile} link="/profile" />
+      <label>BlogSite</label>
+      <div>
+        <IconLink name="Home" svg={home} link={"/"} />
+        <IconLink name="Search" svg={search} link={"/search"} />
+        <IconLink name="Explore" svg={explore} link={"/explore"} />
+        <IconLink name="Create" svg={create} link="/create" />
+        <IconLink name="Profile" svg={profile} link="/profile" />
+      </div>
     </nav>
   );
 };
