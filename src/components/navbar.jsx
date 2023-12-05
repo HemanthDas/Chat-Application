@@ -12,7 +12,7 @@ const Navbar = () => {
         <IconLink name="Home" svg={home} link={"/"} />
         <IconLink name="Search" svg={search} link={"/search"} />
         <IconLink name="Explore" svg={explore} link={"/explore"} />
-        <IconLink name="Create" svg={create} link="/create" />
+        <IconLink name="Create" svg={create} link="/create?type=post" />
         <IconLink name="Profile" svg={profile} link="/profile" />
       </div>
     </nav>
