@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;900&family=Rubik&display=swap");
 #root {
   display: flex;
   position: relative;
@@ -81,20 +82,26 @@ a {
 #create {
   display: flex;
   flex-direction: column;
-
+  height: 100vh;
   .option {
+    position: relative;
     display: grid;
+    font-size: large;
+    font-family: sans-serif;
     grid-template-columns: 1fr 1fr;
-    margin: 10px;
+    padding: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.336);
     > a {
       text-align: center;
     }
 
     > hr {
+      position: absolute;
+      bottom: 0;
       height: 4px;
-      width: 100%;
+      width: 50%;
       border: none;
-      background-color: red;
+      background-color: rgba(139, 139, 139, 0.564);
       margin-left: 0;
       transition: all 0.3s ease-in-out;
     }
@@ -102,23 +109,91 @@ a {
       margin-left: 0% !important;
     }
     > a:nth-child(2):hover ~ hr {
-      margin-left: 100% !important;
+      margin-left: 50% !important;
     }
     > a:nth-child(1)[data-status="active"] ~ hr {
       margin-left: 0%;
     }
     > a:nth-child(2)[data-status="active"] ~ hr {
-      margin-left: 100%;
+      margin-left: 50%;
     }
   }
 }
 #insta-post {
-  & > .upload {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > .frame {
+    width: 60%;
+    height: 80%;
+    border: 0.5px solid rgba(0, 0, 0, 0.336);
+    border-radius: 1rem;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    & > .upload {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: 10rem;
+      border-right: 0.5px solid rgba(0, 0, 0, 0.336);
+      & > img {
+        max-width: 80%;
+        min-width: 1em;
+      }
+    }
+    & .textarea {
+      flex: 1;
+      position: relative;
+      & > .content {
+        margin-top: 1em;
+        min-height: 40%;
+        position: relative;
+        & > textarea {
+          outline: none;
+          width: 95%;
+          border: none;
+          resize: none;
+          font-family: "Inter", sans-serif;
+          font-family: "Rubik", sans-serif;
+          font-size: 1em;
+          &::placeholder {
+            color: rgba(125, 125, 125, 0.662);
+          }
+        }
+        & > .count {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          font-size: 0.8em;
+          color: rgba(125, 125, 125, 0.662);
+          margin-top: 0.5em;
+        }
+      }
+      & > .post {
+        position: absolute;
+        font-size: 1.5em;
+        border-radius: 1em;
+        right: 20px;
+        bottom: 20px;
+        font-family: "Rubik", sans-serif;
+        border: none;
+        padding: 0.25em;
+        color: white;
+        background-color: rgb(29, 155, 240);
+        cursor: pointer;
+      }
+    }
   }
+}
+.profile {
+  width: 100%;
+  font-size: 1.2em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.336);
+  padding: 10px 0px;
+  display: flex;
 }
 @keyframes flow {
   0% {
