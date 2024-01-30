@@ -1,4 +1,11 @@
 :root {
+  --main-cl: #101010;
+  --list-cl: #efefef;
+  --chat-cl: #dedede;
+  --sub-cl: #ffffff;
+  --sub-cl2: #f5f5f5;
+  --txt-normal: #000000;
+  --txt-light: #7a7a7a;
 }
 
 @media (prefers-color-scheme: dark) {
