@@ -1,0 +1,7 @@
+#toggle {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transform: scale(2.5);
+  cursor: pointer;
+}
