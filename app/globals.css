@@ -1,5 +1,6 @@
 :root {
   font-size: 20px;
+  font-family: "Roboto", sans-serif;
 }
 @media (prefers-color-scheme: light) {
   :root {
@@ -8,7 +9,7 @@
     --chat-cl: #dedede;
     --sub-cl: #ffffff;
     --txt-normal: #000000;
-    --txt-light: hsl(0, 0%, 48%);
+    --txt-light: hsl(0, 0%, 35%);
   }
 }
 

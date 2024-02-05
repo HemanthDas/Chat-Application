@@ -1,7 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 #toggle {
   background-color: transparent;
   outline: none;
   border: none;
   transform: scale(2.5);
   cursor: pointer;
+}
+#chatbox {
+  padding: 1rem;
+  margin: 0.5rem;
+}
+.name {
+  font-family: "Poppins", sans-serif;
+}
+.message {
+  border-radius: 0.5rem;
+  font-size: small;
+  color: var(--txt-light);
+  font-family: "Roboto", sans-serif;
 }
