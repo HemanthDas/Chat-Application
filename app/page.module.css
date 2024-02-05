@@ -28,6 +28,9 @@
 #navbarsvg {
   width: 1.5rem;
 }
+.active {
+  display: none;
+}
 @media screen and (max-width: 426px) {
   #navbar {
     max-width: 100%;

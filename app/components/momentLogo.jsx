@@ -1,5 +1,6 @@
 import style from "../page.module.css";
-const MomentLogo = () => {
+import PropTypes from "prop-types";
+const MomentLogo = ({ color }) => {
   return (
     <svg
       id={style.navbarsvg}
@@ -12,47 +13,50 @@ const MomentLogo = () => {
       <g clipPath="url(#clip0_1222_42917)">
         <path
           d="M13.5 1H9"
-          stroke="#8ad6ff"
+          stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M13.5 4H9"
-          stroke="#8ad6ff"
+          stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M13.5 7H9"
-          stroke="#8ad6ff"
+          stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M13.5 13H0.5"
-          stroke="#8ad6ff"
+          stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M13.5 10H0.5"
-          stroke="#8ad6ff"
+          stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
           d="M6 1H1C0.723858 1 0.5 1.22386 0.5 1.5V6.5C0.5 6.77614 0.723858 7 1 7H6C6.27614 7 6.5 6.77614 6.5 6.5V1.5C6.5 1.22386 6.27614 1 6 1Z"
-          stroke="#8ad6ff"
+          stroke={color}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </g>
       <defs>
         <clipPath id="clip0_1222_42917">
-          <rect width="14" height="14" fill="#8ad6ff" />
+          <rect width="14" height="14" fill={color} />
         </clipPath>
       </defs>
     </svg>
   );
+};
+MomentLogo.propTypes = {
+  color: PropTypes.string,
 };
 export default MomentLogo;
