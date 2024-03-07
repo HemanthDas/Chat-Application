@@ -10,3 +10,4 @@ router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/find/:userId", findUser);
 router.get("/search?username", searchUser);
+module.exports = router;
