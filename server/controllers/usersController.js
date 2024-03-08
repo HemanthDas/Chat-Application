@@ -10,12 +10,6 @@ const tokenGenerator = (_id) => {
   });
   return jwtToken;
 };
-const fuseOptions = {
-  includeScore: true,
-  keys: ["username", "email"],
-  threshold: 0.6,
-  limit: 10,
-};
 const registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -70,7 +64,7 @@ const loginUser = async (req, res) => {
 };
 const findUser = async (req, res) => {
   try {
-    const userid = req.params.userid;
+    const userid = req.params.userId;
     const user = await userModel.findById(userid);
     if (!user) return res.status(400).json("User does not exist...");
     return res.status(200).json(user);
@@ -78,14 +72,19 @@ const findUser = async (req, res) => {
     return res.status(500).json(err.message);
   }
 };
+const fuseOptions = {
+  keys: ["username", "email"],
+  threshold: 0.3,
+  isCaseSensitive: false,
+  limit: 10,
+};
 const searchUser = async (req, res) => {
   try {
     const username = req.query.username || "";
     const users = await userModel.find();
-    const fuse = new Fuse(fuseOptions, users);
+    const fuse = new Fuse(users, fuseOptions);
     const result = fuse.search(username);
-    if (result.length === 0)
-      return res.status(400).json("User does not exist...");
+    if (result.length === 0) return res.status(400).json("User not found...");
     return res.status(200).json(result);
   } catch (err) {
     return res.status(500).json(err.message);

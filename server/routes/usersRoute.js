@@ -9,5 +9,5 @@ const {
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/find/:userId", findUser);
-router.get("/search?username", searchUser);
+router.get("/search", searchUser);
 module.exports = router;
