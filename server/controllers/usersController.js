@@ -4,6 +4,9 @@ require("dotenv").config();
 const Fuse = require("fuse.js");
 const validator = require("validator");
 const jwt = require("jsonwebtoken");
+const sendMail = require("../utils/mailHandler");
+const otpVerificationModel = require("../models/otpVerificationModel");
+const generateOTP = require("../utils/otpGenerator");
 const tokenGenerator = (_id) => {
   const jwtToken = jwt.sign({ _id }, process.env.JWT_SECRET, {
     expiresIn: "10d",
@@ -90,4 +93,33 @@ const searchUser = async (req, res) => {
     return res.status(500).json(err.message);
   }
 };
-module.exports = { registerUser, loginUser, findUser, searchUser };
+
+const verifyOTP = (req, res) => {
+  sendOTP(req.body);
+  return res.status(200).json("OTP verified...");
+};
+const sendOTP = async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).json("Email is required...");
+  if (!validator.isEmail(email))
+    return res.status(400).json("Invalid email...");
+  const mail = await sendMail({
+    from: {
+      name: "noreply",
+      address: process.env.EMAIL,
+    },
+    to: email,
+    subject: "OTP for Email Verification",
+    text: `Your OTP is ${generateOTP()}`,
+  });
+  if(!mail) return res.status(500).json("Mail not sent...");
+  return res.status(200).json("OTP sent to email...");
+};
+module.exports = {
+  registerUser,
+  loginUser,
+  findUser,
+  searchUser,
+  verifyOTP,
+  sendOTP,
+};
