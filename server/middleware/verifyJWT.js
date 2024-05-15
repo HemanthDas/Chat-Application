@@ -10,7 +10,9 @@ const verifyJWT = async (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    return res.status(400).json("Invalid Token...");
+    return res
+      .status(400)
+      .json("Unauthorized Token Found. Please Login Again...");
   }
 };
 module.exports = verifyJWT;
